@@ -1,79 +1,43 @@
-package com.yourpackage.worldy;
+# Worldy - Word & Character Counter
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+Worldy is a simple and elegant Android app designed to help users quickly count words and characters in any text. Its clean interface makes it easy to input text, see results instantly, share them, and reset for new text.
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
+## Features
 
-public class MainActivity extends AppCompatActivity {
+- **Count Words and Characters:** Automatically calculates both word and character count.
+- **Share Results:** Easily share your results via social media, messaging apps, or email.
+- **Reset Functionality:** Clear input and start fresh while keeping a placeholder result.
+- **Clean UI:** Modern, responsive interface with placeholder result text for better user experience.
+- **Smooth Experience:** Buttons and result visibility are handled dynamically for clarity.
 
-    private EditText inputText;
-    private TextView textResult, textResultTitle;
-    private AppCompatButton btnCount, btnShare, btnRestart;
+## Screenshots
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Make sure XML file is activity_main.xml
+![Worldy Main Screen](screenshots/main_screen.png)  
+![Worldy Result Screen](screenshots/result_screen.png)
 
-        inputText = findViewById(R.id.inputText);
-        textResult = findViewById(R.id.textResult);
-        textResultTitle = findViewById(R.id.textResultTitle);
-        btnCount = findViewById(R.id.btnCount);
-        btnShare = findViewById(R.id.btnShare);
-        btnRestart = findViewById(R.id.btnRestart);
+## Installation
 
-        btnCount.setOnClickListener(v -> countWordsAndChars());
-        btnShare.setOnClickListener(v -> shareResult());
-        btnRestart.setOnClickListener(v -> resetAll());
-    }
+1. Clone or download the repository.
+2. Open in Android Studio.
+3. Build and run on an emulator or physical device with Android API 21+.
 
-    private void countWordsAndChars() {
-        String text = inputText.getText().toString().trim();
+## Usage
 
-        if (TextUtils.isEmpty(text)) {
-            Toast.makeText(this, "Please enter some text!", Toast.LENGTH_SHORT).show();
-            return;
-        }
+1. Enter text in the input area.
+2. Tap **Count Now!** to see the word and character count.
+3. Tap **Share Result** to share your count with others.
+4. Tap **Reset** to clear the text and start over.
 
-        int charCount = text.length();
-        int wordCount = text.isEmpty() ? 0 : text.split("\\s+").length;
+## Dependencies
 
-        String result = wordCount + " Words, " + charCount + " Characters";
-        textResult.setText(result);
+- AndroidX
+- AppCompat
+- Material Components (if using Material buttons or backgrounds)
 
-        // Make result and buttons visible
-        textResult.setVisibility(View.VISIBLE);
-        textResultTitle.setVisibility(View.VISIBLE);
-        btnShare.setVisibility(View.VISIBLE);
-        btnRestart.setVisibility(View.VISIBLE);
-    }
+## About
 
-    private void shareResult() {
-        String result = textResult.getText().toString();
-        if (TextUtils.isEmpty(result)) {
-            Toast.makeText(this, "Nothing to share!", Toast.LENGTH_SHORT).show();
-            return;
-        }
+Worldy was developed as a lightweight tool for students, writers, and professionals who need quick text statistics without extra complexity.
 
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, result);
-        startActivity(Intent.createChooser(shareIntent, "Share via"));
-    }
+---
 
-    private void resetAll() {
-        inputText.setText("");
-        textResult.setText("0 Words, 0 Characters");
-        textResult.setVisibility(View.VISIBLE); // Show placeholder initially
-        textResultTitle.setVisibility(View.VISIBLE);
-        btnShare.setVisibility(View.GONE);
-        btnRestart.setVisibility(View.GONE);
-    }
-}
+Made with ❤️ by [Your Name]
