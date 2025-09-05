@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Word Counter"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Text Input -->
+        <EditText
+            android:id="@+id/inputText"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:hint="Enter your text here..."
+            android:background="@drawable/round_input"
+            android:inputType="textMultiLine"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:gravity="top|start"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Count Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCount"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:text="Count Now!"
+            android:background="@drawable/blue_gradient"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Result Title -->
+        <TextView
+            android:id="@+id/textResultTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:visibility="visible" />
+
+        <!-- Result Display (placeholder visible initially) -->
+        <TextView
+            android:id="@+id/textResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Result will appear here"
+            android:textColor="#FFEB3B"
+            android:textSize="26sp"
+            android:padding="16dp"
+            android:gravity="center"
+
+            android:layout_marginBottom="24dp"
+            android:visibility="visible" />
+
+        <!-- Share Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:text="Share Result"
+            android:background="@drawable/share"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+        <!-- Reset Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRestart"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:text="Reset"
+            android:background="@drawable/restart"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
